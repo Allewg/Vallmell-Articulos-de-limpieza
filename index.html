@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vallmel - Artículos de Limpieza Premium</title>
+  <meta name="description" content="Tienda de artículos de limpieza con productos de calidad. ¡Reserva ahora por WhatsApp!" />
+  <meta property="og:title" content="Vallmel - Artículos de Limpieza" />
+  <meta property="og:description" content="La mejor tienda de artículos de limpieza en Traiguén." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            primary: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            },
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+            'shimmer': 'shimmer 2s infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(249, 115, 22, 0.5)' },
+              '50%': { boxShadow: '0 0 40px rgba(249, 115, 22, 0.8)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-1000px 0' },
+              '100%': { backgroundPosition: '1000px 0' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { 
+      background: linear-gradient(180deg, #f97316, #fb923c);
+      border-radius: 10px;
+    }
+
+    /* Swiper personalizado */
+    .swiper-pagination-bullet {
+      background: white !important;
+      opacity: 0.5 !important;
+      width: 12px !important;
+      height: 12px !important;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1 !important;
+      width: 30px !important;
+      border-radius: 6px !important;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: white !important;
+      background: rgba(0, 0, 0, 0.3) !important;
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50% !important;
+      backdrop-filter: blur(10px);
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: rgba(249, 115, 22, 0.8) !important;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-800 antialiased">
+
+  <!-- Header + Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <img src="assets/images/logo.jpg" alt="Logo Vallmel" class="w-12 h-12 rounded-full border-2 border-primary-500 shadow-lg transition-all duration-300 group-hover:shadow-primary-500/50 group-hover:scale-110">
+        <span class="text-lg md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Vallmel Artículos de limpieza</span>
+      </a>
+      
+      <!-- Navbar Desktop -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+        <a href="#inicio" class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-home"></i><span>Inicio</span>
+        </a>
+        <a href="#quienes-somos" class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-users"></i><span>Nosotros</span>
+        </a>
+        <a href="#horarios" class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-clock"></i><span>Horarios</span>
+        </a>
+        <a href="#testimonios" class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-comments"></i><span>Testimonios</span>
+        </a>
+        <a href="#donde-estamos" class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-map-marker-alt"></i><span>Ubicación</span>
+        </a>
+        <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-primary-600 to-primary-500 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2">
+          <i class="fab fa-whatsapp"></i><span>Contacto</span>
+        </a>
+      </nav>
+      
+      <!-- Hamburger -->
+      <button id="menu-toggle" class="lg:hidden text-gray-700 hover:text-primary-600 transition-colors p-2" aria-label="Menú">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú móvil -->
+  <div id="menu" class="fixed inset-y-0 right-0 w-72 bg-white/95 backdrop-blur-xl shadow-2xl z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="p-6 space-y-4">
+      <button id="menu-close" class="absolute top-6 right-6 text-gray-600 hover:text-primary-600 transition-colors">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      
+      <div class="pt-8 space-y-4">
+        <a href="#inicio" class="block text-gray-700 hover:text-primary-600 transition-colors py-3 px-4 rounded-lg hover:bg-primary-50 font-medium">
+          <i class="fas fa-home mr-3"></i>Inicio
+        </a>
+        <a href="#quienes-somos" class="block text-gray-700 hover:text-primary-600 transition-colors py-3 px-4 rounded-lg hover:bg-primary-50 font-medium">
+          <i class="fas fa-users mr-3"></i>Nosotros
+        </a>
+        <a href="#horarios" class="block text-gray-700 hover:text-primary-600 transition-colors py-3 px-4 rounded-lg hover:bg-primary-50 font-medium">
+          <i class="fas fa-clock mr-3"></i>Horarios
+        </a>
+        <a href="#testimonios" class="block text-gray-700 hover:text-primary-600 transition-colors py-3 px-4 rounded-lg hover:bg-primary-50 font-medium">
+          <i class="fas fa-comments mr-3"></i>Testimonios
+        </a>
+        <a href="#donde-estamos" class="block text-gray-700 hover:text-primary-600 transition-colors py-3 px-4 rounded-lg hover:bg-primary-50 font-medium">
+          <i class="fas fa-map-marker-alt mr-3"></i>Ubicación
+        </a>
+        <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-primary-600 to-primary-500 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all">
+          <i class="fab fa-whatsapp mr-2"></i>Contacto WhatsApp
+        </a>
+      </div>
+      
+      <img src="assets/images/logo.jpg" alt="Logo móvil" class="absolute bottom-6 left-6 w-16 h-16 rounded-full object-cover border-2 border-primary-500 shadow-lg">
+    </div>
+  </div>
+
+  <!-- Hero Swiper -->
+  <section id="inicio" class="pt-16">
+    <div class="w-full h-screen relative">
+      <div class="swiper heroSwiper h-full">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/portada.jpg" alt="Portada Vallmel" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-700/70 to-blue-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-sparkles text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Todo lo que necesitas para un espacio <span class="text-primary-300">impecable</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  La mejor tienda de artículos de limpieza en Traiguén, con productos de calidad y atención personalizada
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Reserva Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/5.jpg" alt="Productos Vallmel" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-primary-700/70 to-primary-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-spray-can text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Productos de <span class="text-blue-300">máxima calidad</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  Encuentra todo lo que necesitas para mantener tu hogar brillante
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Consulta Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/4.jpg" alt="Tienda Vallmel" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-blue-700/70 to-primary-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-broom text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Atención <span class="text-primary-300">personalizada</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  Un equipo familiar comprometido con tu satisfacción
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Contáctanos</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/3.jpg" alt="Limpieza profesional" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-primary-700/70 to-blue-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-shopping-cart text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Compra <span class="text-blue-300">fácil y rápido</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  Ordena por WhatsApp y recibe asesoría personalizada
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Comprar Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/2.jpg" alt="Productos variados" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-700/70 to-blue-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-box-open text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Gran <span class="text-primary-300">variedad</span> de productos
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  Todo lo que buscas en un solo lugar
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Ver Productos</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="swiper-slide relative">
+            <img src="assets/images/1.jpg" alt="Calidad garantizada" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-primary-700/70 to-primary-900/80"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10">
+              <div class="max-w-4xl animate-fade-in-up">
+                <i class="fas fa-star text-6xl md:text-7xl text-white mb-6 animate-float"></i>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+                  Calidad <span class="text-blue-300">garantizada</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+                  Productos confiables para resultados excepcionales
+                </p>
+                <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                  <span>Pide Tu Producto</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section id="quienes-somos" class="py-20 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-blue-50/50 -z-10"></div>
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent inline-block relative">
+          ¿Quiénes Somos?
+          <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-full"></span>
+        </h2>
+        <p class="text-gray-600 mt-6 text-lg">Conoce nuestra historia familiar</p>
+      </div>
+      
+      <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/3">
+            <img src="assets/images/logo.jpg" alt="Logo Vallmel" class="w-48 h-48 mx-auto rounded-full border-4 border-primary-500 shadow-2xl shadow-primary-500/30 object-cover animate-pulse-glow">
+          </div>
+          <div class="md:w-2/3 space-y-4">
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Somos una tienda familiar dedicada a ofrecer los <span class="font-semibold text-primary-600">mejores artículos de limpieza</span> con atención personalizada y productos de calidad excepcional.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Fundada desde el corazón de la familia, encontrarás realizando todas las labores a <span class="font-semibold text-blue-600">padres e hijos trabajando juntos</span> por un objetivo común: tu satisfacción.
+            </p>
+            <div class="grid grid-cols-3 gap-4 pt-6">
+              <div class="text-center p-4 bg-primary-50 rounded-xl">
+                <i class="fas fa-heart text-3xl text-primary-600 mb-2"></i>
+                <p class="text-sm font-semibold text-gray-700">Atención Familiar</p>
+              </div>
+              <div class="text-center p-4 bg-blue-50 rounded-xl">
+                <i class="fas fa-award text-3xl text-blue-600 mb-2"></i>
+                <p class="text-sm font-semibold text-gray-700">Calidad Premium</p>
+              </div>
+              <div class="text-center p-4 bg-primary-50 rounded-xl">
+                <i class="fas fa-handshake text-3xl text-primary-600 mb-2"></i>
+                <p class="text-sm font-semibold text-gray-700">Confianza</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="py-20 px-4 bg-gradient-to-br from-white to-primary-50/30">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent inline-block relative">
+          Lo Que Dicen Nuestros Clientes
+          <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-full"></span>
+        </h2>
+        <p class="text-gray-600 mt-6 text-lg">Testimonios reales de personas satisfechas</p>
+      </div>
+      
+      <div class="swiper testimoniosSwiper">
+        <div class="swiper-wrapper pb-12">
+          
+          <!-- Testimonio 1 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-primary-500 relative">
+              <div class="absolute top-6 right-6 text-6xl text-primary-100 font-display">"</div>
+              <p class="text-gray-700 text-lg mb-6 relative z-10 leading-relaxed">
+                Excelente servicio y productos de calidad. Siempre encuentro lo que necesito y la atención es muy personalizada.
+              </p>
+              <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg">
+                  <i class="fas fa-user text-white text-xl"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800 text-lg">Juan P.</div>
+                  <div class="flex gap-1 mt-1">
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio 2 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-blue-500 relative">
+              <div class="absolute top-6 right-6 text-6xl text-blue-100 font-display">"</div>
+              <p class="text-gray-700 text-lg mb-6 relative z-10 leading-relaxed">
+                Muy recomendable, volveré a comprar sin dudarlo. Los precios son justos y la calidad es excepcional.
+              </p>
+              <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                  <i class="fas fa-user text-white text-xl"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800 text-lg">Ana M.</div>
+                  <div class="flex gap-1 mt-1">
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio 3 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-primary-500 relative">
+              <div class="absolute top-6 right-6 text-6xl text-primary-100 font-display">"</div>
+              <p class="text-gray-700 text-lg mb-6 relative z-10 leading-relaxed">
+                El mejor lugar para artículos de limpieza en la zona. Trato familiar y productos que realmente funcionan.
+              </p>
+              <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg">
+                  <i class="fas fa-user text-white text-xl"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800 text-lg">Carlos R.</div>
+                  <div class="flex gap-1 mt-1">
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dónde estamos -->
+  <section id="donde-estamos" class="py-20 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-primary-50/50 -z-10"></div>
+    <div class="container mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent inline-block relative">
+          <i class="fas fa-map-marked-alt mr-3 animate-float"></i>Encuéntranos
+          <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-full"></span>
+        </h2>
+        <p class="text-gray-600 mt-6 text-lg">Visítanos en nuestra ubicación</p>
+      </div>
+      
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <div class="p-6 md:p-8 bg-gradient-to-r from-primary-500 to-blue-500">
+          <div class="flex items-center justify-center gap-3 text-white">
+            <i class="fas fa-map-marker-alt text-2xl"></i>
+            <p class="text-lg md:text-xl font-semibold">Saavedra 673, Traiguén, Región de La Araucanía</p>
+          </div>
+        </div>
+        
+        <div class="w-full h-96 relative">
+          <iframe
+            width="100%"
+            height="100%"
+            frameborder="0"
+            style="border:0"
+            src="https://www.google.com/maps?q=Saavedra+673+Traiguén+Región+de+La+Araucanía&output=embed"
+            allowfullscreen
+            class="grayscale hover:grayscale-0 transition-all duration-500">
+          </iframe>
+        </div>
+        
+        <div class="p-6 md:p-8 bg-gray-50 grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-primary-100 flex items-center justify-center">
+              <i class="fas fa-phone text-primary-600 text-xl"></i>
+            </div>
+            <p class="font-semibold text-gray-800">Teléfono</p>
+            <p class="text-gray-600 text-sm mt-1">+56 9 9504 4104</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-blue-100 flex items-center justify-center">
+              <i class="fas fa-clock text-blue-600 text-xl"></i>
+            </div>
+            <p class="font-semibold text-gray-800">Horario</p>
+            <p class="text-gray-600 text-sm mt-1">Lun - Sáb: 9:00 - 20:00</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-primary-100 flex items-center justify-center">
+              <i class="fab fa-whatsapp text-primary-600 text-xl"></i>
+            </div>
+            <p class="font-semibold text-gray-800">WhatsApp</p>
+            <p class="text-gray-600 text-sm mt-1">Disponible 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 px-4 bg-gradient-to-r from-primary-600 to-blue-600 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-4xl text-center relative z-10">
+      <i class="fas fa-shopping-bag text-6xl text-white mb-6 inline-block animate-float"></i>
+      <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+        ¿Listo para comprar?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Contáctanos ahora por WhatsApp y recibe atención personalizada para encontrar exactamente lo que necesitas
+      </p>
+      <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white text-primary-600 px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span>Contactar por WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        
+        <div class="flex items-center gap-4">
+          <img src="assets/images/logo.jpg" alt="Logo Vallmel Footer" class="h-16 w-16 rounded-full border-2 border-primary-500 shadow-lg shadow-primary-500/50 object-cover">
+          <div>
+            <span class="text-2xl font-display font-bold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent">Vallmel</span>
+            <p class="text-sm text-gray-400">Artículos de Limpieza</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <a href="#inicio" class="text-gray-300 hover:text-primary-400 transition-colors text-sm">Inicio</a>
+          <a href="#quienes-somos" class="text-gray-300 hover:text-primary-400 transition-colors text-sm">Nosotros</a>
+          <a href="#testimonios" class="text-gray-300 hover:text-primary-400 transition-colors text-sm">Testimonios</a>
+          <a href="#donde-estamos" class="text-gray-300 hover:text-primary-400 transition-colors text-sm">Ubicación</a>
+        </div>
+        
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+        <p class="text-sm text-gray-400">
+          &copy; 2025 <span class="text-primary-400 font-semibold">Vallmel</span> - Desarrollado por <span class="text-blue-400 font-semibold">Hardware Mania</span>. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/56995044104?text=Hola%20Vallmel%20quiero%20comprar%20articulos" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-50 transition-all duration-300 hover:scale-110 animate-pulse-glow">
+    <i class="fab fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- Botón scroll to top -->
+  <button id="scrollTopBtn" aria-label="Volver arriba" class="fixed bottom-6 left-6 w-14 h-14 bg-gray-700 hover:bg-gray-600 text-white rounded-full shadow-xl flex items-center justify-center z-50 transition-all duration-300 hover:scale-110 opacity-0 pointer-events-none">
+    <i class="fas fa-chevron-up text-xl"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const menu = document.getElementById('menu');
+    const menuLinks = menu.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.remove('translate-x-full');
+    });
+
+    menuClose.addEventListener('click', () => {
+      menu.classList.add('translate-x-full');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('translate-x-full');
+      });
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !menuToggle.contains(e.target) && !menu.classList.contains('translate-x-full')) {
+        menu.classList.add('translate-x-full');
+      }
+    });
+
+    // Navbar shadow on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg');
+      } else {
+        navbar.classList.remove('shadow-lg');
+      }
+    });
+
+    // Botón scroll to top
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        scrollTopBtn.classList.add('opacity-100');
+      } else {
+        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        scrollTopBtn.classList.remove('opacity-100');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Swiper Hero
+    const heroSwiper = new Swiper('.heroSwiper', {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 1000,
+    });
+
+    // Swiper Testimonios
+    const testimoniosSwiper = new Swiper('.testimoniosSwiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    // Smooth scroll para todos los enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Animación de elementos al hacer scroll (Intersection Observer)
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observar secciones
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
